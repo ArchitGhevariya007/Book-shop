@@ -1,0 +1,288 @@
+body {
+    background-color: #FFF;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1em;
+}
+
+/* Navbar : Start */
+
+/* RESPONSIVE NAV STYLES */
+
+.nav-collapse ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;
+    list-style: none;
+}
+
+.nav-collapse li {
+    width: 100%;
+    display: block;
+}
+
+.js .nav-collapse {
+    clip: rect(0 0 0 0);
+    max-height: 0;
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    zoom: 1;
+}
+
+.nav-collapse.opened {
+    max-height: 9999px;
+}
+
+.disable-pointer-events {
+    pointer-events: none !important;
+}
+
+.nav-toggle {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+@media screen and (min-width: 768px) {
+    .js .nav-collapse {
+        position: relative;
+    }
+
+    .js .nav-collapse.closed {
+        max-height: none;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+}
+
+
+/* FIXED HEADER */
+
+header {
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background: #FFF;
+    margin-bottom: 800px;
+}
+
+.logo {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+    line-height: 55px;
+    padding: 0;
+    color: #000;
+    float: left;
+    margin-top: 5px;
+    font-size: 1.2em;
+    letter-spacing: 4px;
+}
+
+/* NAVIGATION STYLES */
+
+.fixed {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.nav-collapse,
+.nav-collapse * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.nav-collapse,
+.nav-collapse ul {
+    list-style: none;
+    width: 100%;
+    float: left;
+}
+
+@media screen and (min-width: 768px) {
+    .nav-collapse {
+        float: right;
+        width: auto;
+    }
+}
+
+.nav-collapse li {
+    float: left;
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .nav-collapse li {
+        width: auto;
+    }
+}
+
+.nav-collapse a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+    padding: 0.7em 1em 0.7em 0;
+    color: #000;
+    width: 100%;
+    float: left;
+}
+
+.nav-collapse a:active,
+.nav-collapse .active a {
+    text-decoration: underline 2px;
+    text-underline-offset: 5px;
+}
+
+@media screen and (min-width: 768px) {
+    .nav-collapse a {
+        padding: 1.02em 2em;
+        text-align: center;
+        border-top: 0;
+        float: left;
+        margin: 0;
+    }
+
+    .nav-collapse:last-child a {
+        padding-right: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .nav-collapse ul ul a {
+        display: none;
+    }
+}
+
+
+/* NAV TOGGLE STYLES */
+
+.nav-toggle {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-decoration: none;
+    text-indent: -300px;
+    position: relative;
+    overflow: hidden;
+    width: 60px;
+    height: 55px;
+    float: right;
+}
+
+.nav-toggle:before {
+    color: #000;
+    font: normal 28px/55px "FontAwesome";
+    text-transform: none;
+    text-align: right;
+    position: absolute;
+    content: "\2630"; /* Hamburger icon */
+    text-indent: 0;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.nav-toggle.active:before {
+    font-size: 24px;
+    content: "\2716"; /* Close icon */
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.cart{
+    padding: 1.2em 0.5em 0.5em 1.7em;
+    cursor: pointer;
+    /* background-color: #000; */
+    width: 100%;
+    margin: auto;
+}
+/* Navbar : End */
+
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-top: 70px;
+}
+
+
+/* Division 1 : Start */
+.div1{
+    width: 85%;
+    margin-top: 1em;
+    
+    height: 98%;
+    
+}
+.offer{
+    margin-top: -1.2em;
+    width: 65%;
+}
+
+@media screen and (max-width: 768px) {
+    .offer{
+        width: 100%;
+    }  
+}
+
+.offer-para{
+    
+    margin-top: -5em;
+    margin-left: 0.6em;
+}
+
+.shop-now{
+    height: 2.3em;
+    width: 11em;
+    background-color: #000;
+    color: #FFF;
+    border-radius: 3px;
+    margin-left: 0.8em;
+    box-shadow: 3px 5px 8px #888888;
+    
+}
+
+.books{
+    margin-top: -2.3em;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .books{
+        width: 100%;
+        margin-top: 30px;
+    }  
+}
+
+/* Division 1 : End */
+
+
+/* Division 2 : Start */
+.div2{
+background-color: #888888;
+}
+
+.title{
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-top: 0em;
+}
+
+/* Division 2 : End */
