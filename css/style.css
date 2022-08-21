@@ -471,7 +471,68 @@ header {
     width: 80%;
 }
 
+.show-more{
+    position: relative;
+    margin-top: 2em;
 
+}
 
+@media screen and (max-width: 768px) {
+    .show-more {
+        
+    }
+}
 
 /* Division 4 : End */
+
+/* Footer : Start */
+.footer{
+position: relative;
+background-color: #000;
+color: #FFF;
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+margin-top: 5em;
+padding-top: 1em;
+padding-left: 1em;
+}
+
+@media screen and (max-width: 768px) {
+    .subscribe {
+        margin-bottom: 1em;
+    }
+}
+
+
+.heading{
+font-size: 1.7em;
+}
+
+@media screen and (max-width: 768px) {
+    .heading {
+        margin-top: 1em;
+    }
+}
+
+.newsletter{
+width: 17em;
+padding-left: 0.7em;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+}
+
+.subscribe{
+background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+border: 1px solid #000;
+width: 7em;
+height: 2em;
+margin-top: 0.5em;
+}
+
+.copyright{
+    margin-top: 1em;
+    text-align: center;
+}
+/* Footer : End */

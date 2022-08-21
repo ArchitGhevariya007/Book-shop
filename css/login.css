@@ -1,0 +1,88 @@
+body {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1em;
+    background-color: rgb(254, 254, 254);
+}
+
+input[type=password],input[type=text]{
+    height: 2em;
+    width: 17em;
+    margin-bottom: 1em;
+    border: 0.07em solid #000;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+input[type=button]{
+    height: 2em;
+    width: 17em;
+    margin-bottom: 1em;
+    border: 0.07em solid #000;
+    padding-left: 10px;
+}
+
+.login{
+    text-align: center;
+    margin-bottom: -5em;
+    position: relative;
+    background-color: rgba(246, 246, 246, 0.9);
+    border: 1px solid #000;
+    margin: auto;
+    width: 27%;
+    height: 53%;
+    margin-top: 10em;
+}
+
+.title{
+    font-size: 2.4em;
+    font-weight: 500;
+    margin-top: 0.5em;
+}
+
+.login-btn{
+    background-color: #000;
+    border: 0.09em solid #000;
+    color: #FFF;
+}
+
+.signup-btn{
+    background-color: #FFF;
+    border: 0.09em solid #000;
+    color: #000;
+    
+}
+
+.signup-btn:hover{
+    background-color: #000;
+    border: 0.09em solid #000;
+    color: #FFF;
+}
+
+/* Hr tag */
+
+.separator{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.separator h6{
+  padding: 0 1em;
+  margin-top: 5px;
+}
+
+.separator .line{
+  flex: 1;
+  height: 1px;
+  background-color: rgb(110, 110, 110);
+}
+
+
+@media screen and (min-width: 768px) {
+    .login {
+        width: auto;
+    }
+}
+ 
