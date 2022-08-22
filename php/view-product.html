@@ -30,11 +30,46 @@
 
 <body>
 
-    <div class="product-container">
-        sd
+    <div class="product-container ">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="product-grid product-view">
+                    <a href="" class="image">
+                        <img class="img-1" src="/assets/book1.jpg">
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6">
+                <div class=" product-info">
+                    <p class="book-name">Atomic Habit </p>
+                    <p class="book-details">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt
+                        facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint
+                        asperiores fuga voluptas, distinctio, aperiam, ratione dolore.
+
+                        Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat
+                        dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic
+                        magni iste, velit aperiam quis.
+                    </p>
+
+                    <p class="book-price">$58.79</p>
+
+                    <form>
+                    <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                    <input type="number" id="number" value="0" />
+                    <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                    </form>
+
+                    <input type="button" class="div-3-btn buy-now" value="BUY NOW">
+
+                </div>
+            </div>
+
+        </div>
     </div>
 </body>
 <script src='https://cdn.rawgit.com/viljamis/responsive-nav.js/master/responsive-nav.min.js'></script>
-<script src="./js/script.js"></script>
+<script src="/js/script.js"></script>
 
 </html>

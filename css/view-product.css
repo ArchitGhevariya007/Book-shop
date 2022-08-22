@@ -1,10 +1,108 @@
-    .product-container{
-    background-color: #666666;
-    width: 80%;
-    height: 80%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 4em;
-    margin-bottom: 3.5em;
-}
+    .product-container {
+        background-color: #dddbdb;
+        width: 80%;
+        height: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 4em;
+        margin-bottom: 3.5em;
+    }
+
+    .product-view {
+        background-color: #dddbdb;
+        width: 90%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 4.7em;
+        margin-bottom: 3.5em;
+
+    }
+
+    .product-info {
+        width: 90%;
+        display: block;
+        margin-top: 4.7em;
+        margin-bottom: 2em;
+        padding-left: 0.5em;
+    }
+
+    .book-name {
+        font-size: 2em;
+        font-weight: 600;
+    }
+
+    .book-details {
+        color: rgb(109, 109, 109);
+    }
+
+    .book-price {
+        font-size: 1.2em;
+        margin-top: 1.3em;
+    }
+
+    /* Up down number */
+    form {
+        width: 300px;
+        margin: 0 auto;
+        padding-top: 1.5em;
+        margin-left: -0.1em;
+
+    }
+
+    .value-button {
+        display: inline-block;
+        border: 1px solid #ddd;
+        margin: 0px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 0;
+        background: #eee;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .value-button:hover {
+        cursor: pointer;
+    }
+
+    form #decrease {
+        margin-right: -4px;
+    }
+
+    form #increase {
+        margin-left: -4px;
+    }
+
+    form #input-wrap {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    input#number {
+        text-align: center;
+        border: none;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        margin: 0px;
+        width: 40px;
+        height: 40px;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+
+    .buy-now{
+        margin-top: 1em;
+    }
