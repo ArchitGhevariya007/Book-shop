@@ -26,3 +26,11 @@ function decreaseValue() {
   value--;
   document.getElementById('number').value = value;
 }
+
+//Products div
+
+$(document).ready(function(){
+  $("#close-button").click(function(){
+    $('.product-container').hide();
+  });
+});

@@ -1,7 +1,6 @@
     .product-container {
         background-color: #dddbdb;
         width: 80%;
-        height: 80%;
         display: block;
         margin-left: auto;
         margin-right: auto;
@@ -15,7 +14,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 4.7em;
+        margin-top: 3em;
         margin-bottom: 3.5em;
 
     }
@@ -23,7 +22,7 @@
     .product-info {
         width: 90%;
         display: block;
-        margin-top: 4.7em;
+        margin-top: 3em;
         margin-bottom: 2em;
         padding-left: 0.5em;
     }
@@ -42,6 +41,30 @@
         margin-top: 1.3em;
     }
 
+    .close-button{
+        position: absolute;
+        font-size: 1.7em;
+        color: rgb(38, 38, 38);
+        padding: 0.5em 0.5em 0.5em 0.5em;
+        /* right: 5.2em; */
+        cursor: pointer;
+        left: 86%;
+    }
+    @media screen and (max-width: 768px) {
+        .close-button{
+            position: absolute;
+            left: 78%;
+            
+        }
+    
+    }
+
+    @media screen and (max-width: 768px) {
+        .product-img{
+            width: 100%;
+        }
+    
+    }
     /* Up down number */
     form {
         width: 300px;
