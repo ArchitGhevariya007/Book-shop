@@ -28,13 +28,15 @@ function decreaseValue() {
 }
 
 //View product
-$(".view-product").click(function() {
-  $.fancybox.open({
-      href : '/php/view-product.html',
-      type : 'iframe',
-      padding : 5
-  });
-})
+// $(".view-product").click(function() {
+//   $.fancybox.open({
+//       href : '/php/view-product.html',
+//       type : 'iframe',
+//       padding : 0, 
+//       width: 1000,
+//       height: 900,
+//   });
+// })
 
 //Products div
 
