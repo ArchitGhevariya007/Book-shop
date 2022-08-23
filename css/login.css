@@ -4,18 +4,20 @@ body {
     background-color: rgb(254, 254, 254);
 }
 
-input[type=password],input[type=text]{
+input[type=password],
+input[type=text] {
     height: 2em;
     width: 17em;
     margin-bottom: 1em;
     border: 0.07em solid #000;
     padding-left: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
+    padding-top: 1.1em;
+    padding-bottom: 1.1em;
+
+
 }
 
-input[type=button]{
+input[type=button] {
     height: 2em;
     width: 17em;
     margin-bottom: 1em;
@@ -23,38 +25,49 @@ input[type=button]{
     padding-left: 10px;
 }
 
-.login{
+.login {
     text-align: center;
-    margin-bottom: -5em;
-    position: relative;
-    background-color: rgba(246, 246, 246, 0.9);
-    border: 1px solid #000;
-    margin: auto;
-    width: 27%;
-    height: 53%;
-    margin-top: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
-.title{
+.login-body {
+    border: 1px solid rgb(132, 132, 132);
+    background-color: rgb(250, 250, 250);
+    box-sizing: content-box;
+    padding: 2em 4em 2em 4em;
+    margin-top: 7em;
+}
+
+@media screen and (max-width: 768px) {
+    .login-body {
+        padding: 0.9em 0.9em 0.9em 0.9em;
+
+    }
+}
+.title {
     font-size: 2.4em;
     font-weight: 500;
     margin-top: 0.5em;
 }
 
-.login-btn{
+.login-btn {
     background-color: #000;
     border: 0.09em solid #000;
     color: #FFF;
 }
 
-.signup-btn{
+.signup-btn {
     background-color: #FFF;
     border: 0.09em solid #000;
     color: #000;
-    
+    margin-top: 1em;
+
 }
 
-.signup-btn:hover{
+.signup-btn:hover {
     background-color: #000;
     border: 0.09em solid #000;
     color: #FFF;
@@ -62,21 +75,23 @@ input[type=button]{
 
 /* Hr tag */
 
-.separator{
-  display: flex;
-  align-items: center;
-  margin-bottom: 1em;
+.separator {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    /* width: 30%; */
+    margin: auto;
 }
 
-.separator h6{
-  padding: 0 1em;
-  margin-top: 5px;
+.separator h6 {
+    padding: 0 1em;
+    margin-top: 5px;
 }
 
-.separator .line{
-  flex: 1;
-  height: 1px;
-  background-color: rgb(110, 110, 110);
+.separator .line {
+    flex: 1;
+    height: 1px;
+    background-color: rgb(110, 110, 110);
 }
 
 
@@ -85,4 +100,35 @@ input[type=button]{
         width: auto;
     }
 }
- 
+
+/* Signup */
+.signup {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-body {
+    border: 1px solid rgb(132, 132, 132);
+    background-color: rgb(250, 250, 250);
+    box-sizing: content-box;
+    padding: 2em 4em 2em 4em;
+    margin-top: 7em;
+}
+
+.back-login{
+    cursor: pointer;
+}
+
+.backto-login-btn{
+    background-color: #000;
+    border: 0.09em solid #000;
+    color: #FFF;
+    margin-top: 0.8em;
+}
+
+.backto-login-btn:hover {
+    background-color: rgb(255, 255, 255);
+    color: #000;
+}

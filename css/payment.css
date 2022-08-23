@@ -1,0 +1,86 @@
+body {
+    background-color: #FFF;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1em;
+
+}
+
+.payment-body{
+    width: 80%;
+    margin: auto;
+    padding-top: 2em;
+}
+
+.tbhead{
+    background-color: #000;
+    color: #FFF;
+}
+
+.table{
+    margin-bottom: 5em;
+}
+.payment-title{
+    font-size: 2em;
+}
+
+input[type=text],input[type=number],input[type=date]{
+    width: 100%;
+    margin: 1em 0em 1em 0em;
+    padding: 0.5em 0em 0.5em 1em;
+    border: 0.1px solid rgb(143, 143, 143);
+    border-radius: 0.2em;
+    
+}
+
+input[type=text]::placeholder,input[type=number]::placeholder,input[type=date]::placeholder{
+    color: rgb(143, 143, 143);
+    font-size: 0.9em;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.country{
+    width: 100%;
+    margin: 1em 0em 1em 0em;
+    padding: 0.5em 0em 0.5em 1em;
+    border: 0.1px solid rgb(143, 143, 143);
+    border-radius: 0.1em;
+}
+
+.title-heading{
+     font-size: 1.2em;
+     padding-bottom: 0em;
+     margin-bottom: 0em;
+     margin-top: 1.5em;
+     font-weight: 300;
+}
+
+.pay-btn{
+    width: 8em;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    background-color: #000;
+    color: #FFF;
+    margin-top: 1em;
+}
+
+.pay-btn:hover{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+.back-home{
+    position: relative;
+   text-align: center;
+   margin-top: 1.5em;
+   margin-bottom: 2em;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.back-home:hover{
+    color: #000;
+}

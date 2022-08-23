@@ -1,13 +1,13 @@
-var nav = responsiveNav(".nav-collapse");
 
-$(document).ready(function(){
-    $("#hide").click(function(){
-      $("p").hide();
-    });
-    $("#show").click(function(){
-      $("p").show();
-    });
-  });
+
+// $(document).ready(function(){
+//     $("#hide").click(function(){
+//       $("p").hide();
+//     });
+//     $("#show").click(function(){
+//       $("p").show();
+//     });
+//   });
 
 
 // Up down nmbers
@@ -27,10 +27,35 @@ function decreaseValue() {
   document.getElementById('number').value = value;
 }
 
+//View product
+$(".view-product").click(function() {
+  $.fancybox.open({
+      href : '/php/view-product.html',
+      type : 'iframe',
+      padding : 5
+  });
+})
+
 //Products div
 
 $(document).ready(function(){
   $("#close-button").click(function(){
     $('.product-container').hide();
+  });
+});
+
+//Signup login toogle
+
+
+$(document).ready(function(){
+  $(".signup").hide();
+  $(".signup-btn").click(function(){
+    $(".signup").show();
+    $(".login").hide();
+  });
+
+  $(".backto-login-btn").click(function(){
+    $(".login").show();
+    $(".signup").hide();
   });
 });
