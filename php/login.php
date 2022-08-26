@@ -135,7 +135,7 @@
                         ?>
 
             <input type="text" name="captcha" placeholder="Enter Captcha"><br>
-            <button name="submit" class="signup-btn">SIGNUP</button>
+            <button name="submit" id="signup" class="signup-btn">SIGNUP</button>
             <?php
         if(isset($_POST['submit']))
         {
