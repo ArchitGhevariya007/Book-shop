@@ -1,5 +1,3 @@
-
-
 <html>
 
 <head>
@@ -26,7 +24,7 @@
     <!-- Css -->
     <link rel="stylesheet" href="../css/login.css">
 
-    <!-- Icons -->  
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -35,17 +33,41 @@
 
 <body>
 
+<!------------------------------------------- login form ------------------------------------------->
     <form method="POST" action="" class="login">
         <div class="login-body">
             <p class="title">Login</p>
             <div>
                 <?php
+                if(!empty($error)){
                 echo $error;
+                }
                 ?>
             </div>
-            <input type="text" name="email" placeholder="Enter your email"><br>
-            <input type="password" name="password" placeholder="Enter your password"><br>
-            <input type="submit" name="button" id="" class=" login-btn" value="LOGIN">
+            <input type="text" name="login-email" placeholder="Enter your email"><br>
+            <?php
+                            if(isset($_POST["login-email"]))
+                            {
+                                if($_POST["login-email"] == "")
+                                {
+                                    echo '<p class="error" >Please enter email.</p>';
+                                    $flag = false;
+                                }
+                            }
+                        ?>
+            <input type="password" name="login-password" placeholder="Enter your password"><br>
+            <?php
+                            if(isset($_POST["login-password"]))
+                            {
+                                if($_POST["login-password"] == "")
+                                {
+                                    echo '<p class="error" >Please enter password.</p>';
+                                    $flag = false;
+                                }
+                            }
+                        ?>
+            
+            <button name="login-submit" class="login-btn">LOGIN</button>
 
             <!-- Line  -->
             <div class="separator">
@@ -54,19 +76,86 @@
                 <div class="line"></div>
             </div>
 
-            <input type="button" name="button" id="" class="signup-btn" value="SIGN UP">
+            <input type="button" name="button" id="goto-signup" class="signup-btn" value="SIGN UP">
         </div>
     </form>
 
+
+
+<!------------------------------------------- Signup form ------------------------------------------->
     <form method="POST" class="signup" action="">
         <div class="signup-body">
             <p class="title">Signup</p>
             <input type="text" name="email" placeholder="Enter your email"><br>
+            <?php
+                            $flag = true;
+                            if(isset($_POST["email"]))
+                            {
+                                if($_POST["email"] == "")
+                                {
+                                    echo '<p class="error" >Please enter email.</p>';
+                                    $flag = false;
+                                }
+                            }
+                        ?>
             <input type="password" name="password" placeholder="Enter your password"><br>
+            <?php
+                            if(isset($_POST["password"]))
+                            {
+                                if($_POST["password"] == "")
+                                {
+                                    echo '<p class="error" >Please enter password.</p>';
+                                    $flag = false;
+                                }
+                            }
+                        ?>
+            <div class="captcha">
+                <div><img src="captcha.php" alt="PHP Captcha" class="d-flex justify-content-start"></div> <br>
+            </div>
+            <?php
+                            session_start();
+                            if(isset($_POST["Captcha"]))
+                            {
+                                if($_POST["Captcha"] == "")
+                                {
+                                    echo '<p class="error" >Please Enter Captcha.</p>';
+                                    $flag = false;
+                                }
+                                else if($_SESSION['captcha'] != $_POST["Captcha"] )
+                                {
+                                    echo '<p class="error" >Incorrect captcha.</p>';
+                                    $flag = false;
+                                }
+                                else
+                                {
+                                    echo '<p class="error">Correct captcha.</p>';
+                                    $flag = true;
+                                }
+                            }
+                        ?>
 
             <input type="text" name="captcha" placeholder="Enter Captcha"><br>
-            <input type="button" name="button" id="" class="signup-btn" value="SIGNUP">
+            <button name="submit" class="signup-btn">SIGNUP</button>
+            <?php
+        if(isset($_POST['submit']))
+        {
+            if($flag == true)
+            {
+                include('connection.php');
 
+                $sql = "insert into user_login values('".$_POST['email']."','".$_POST['password']."')";
+                if($con->query($sql))
+                {
+                    echo "<script>alert(`Singup successfull`)</script>";
+                }
+                else
+                {
+                    echo "<script>alert(`user already exist`)</script>";
+                }
+            }
+        }
+        
+        ?>
 
 
             <!-- Line  -->
@@ -84,31 +173,34 @@
 <script src='https://cdn.rawgit.com/viljamis/responsive-nav.js/master/responsive-nav.min.js'></script>
 <script language="JavaScript" type="text/javascript" src="../js/script.js"></script>
 
-
 </html>
 
-<?php      
-    include('connection.php'); 
-    if(!empty($_POST['email']) && !empty($_POST['password'])){
-        $username = $_POST['email'];  
-        $password = $_POST['password'];
-      
-        //to prevent from mysqli injection  
-        $username = stripcslashes($username);  
-        $password = stripcslashes($password);  
-        $username = mysqli_real_escape_string($con, $username);  
-        $password = mysqli_real_escape_string($con, $password);  
-      
-        $sql = "select *from user_login where email = '$username' and password = '$password'";  
-        $result = mysqli_query($con, $sql);  
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
-        $count = mysqli_num_rows($result);  
-          
-        if($count == 1){  
-            echo "<center> Login successful </center>";  
-        }  
-        else{  
-            $error= "<center> Login failed. Invalid username or password.</center>";  
-        }     
-    }
-?>
+<!-- For login -->
+<?php
+        if(isset($_POST['login-submit']))
+        {
+            if($flag == true)
+            {
+                include('connection.php'); 
+                $sql = "select * from user_login where email = '".$_POST['login-email']."'";
+                if(mysqli_num_rows(mysqli_query($con,$sql)))
+                {
+                    $sql = "select password from user_login where email = '".$_POST['login-email']."'";
+                    $result = mysqli_query($con,$sql);
+                    $data = mysqli_fetch_assoc($result);
+                    if($data['password'] == $_POST['login-password'])
+                    {
+                        header("Location:../index.html");
+                        exit();
+                    }
+                    else{
+                        $error="Incorrcet Password"; 
+                    }   
+                }
+                else{           
+                    $error="Username does not exist. Kindly register yourself.";
+                }
+            }
+        }
+        
+        ?>

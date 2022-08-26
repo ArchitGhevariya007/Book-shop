@@ -68,6 +68,11 @@ input[type=button] {
     border: 0.09em solid #000;
     color: #000;
     margin-top: 1em;
+    height: 2em;
+    width: 17em;
+    margin-bottom: 1em;
+    border: 0.07em solid #000;
+    padding-left: 10px;
 
 }
 
@@ -136,3 +141,12 @@ input[type=button] {
     background-color: rgb(255, 255, 255);
     color: #000;
 }
+
+.error{
+    color: red;
+    font-size: 15px;
+    text-align: left;
+    margin-top: -15px;
+    margin-left: 5px;
+}
+

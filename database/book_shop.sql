@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/lib/codemirror.css?v=5.1.3">
     <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/hint/show-hint.css?v=5.1.3">
     <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/lint/lint.css?v=5.1.3">
-    <link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/theme.css?v=5.1.3&nocache=3111343951ltr&server=1">
+    <link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/theme.css?v=5.1.3&nocache=3259354230ltr&server=1">
     <link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/printview.css?v=5.1.3" media="print" id="printcss">
     <title>localhost / 127.0.0.1 | phpMyAdmin 5.1.3</title>
     <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.min.js?v=5.1.3"></script>
@@ -56,7 +56,7 @@
 
 <script data-cfasync="false" type="text/javascript">
 // <![CDATA[
-CommonParams.setAll({common_query:"",opendb_url:"index.php?route=/database/structure",lang:"en",server:"1",table:"",db:"",token:"415f36445f68216c412d464952557a5d",text_dir:"ltr",show_databases_navigation_as_tree:true,pma_text_default_tab:"Browse",pma_text_left_default_tab:"Structure",pma_text_left_default_tab2:false,LimitChars:"50",pftext:"P",confirm:true,LoginCookieValidity:"1440",session_gc_maxlifetime:"1440",logged_in:true,is_https:false,rootPath:"/phpmyadmin/",arg_separator:"&",PMA_VERSION:"5.1.3",auth_type:"config",user:"root"});
+CommonParams.setAll({common_query:"",opendb_url:"index.php?route=/database/structure",lang:"en",server:"1",table:"",db:"",token:"40426157782a25483c5a68483e49504f",text_dir:"ltr",show_databases_navigation_as_tree:true,pma_text_default_tab:"Browse",pma_text_left_default_tab:"Structure",pma_text_left_default_tab2:false,LimitChars:"50",pftext:"P",confirm:true,LoginCookieValidity:"1440",session_gc_maxlifetime:"1440",logged_in:true,is_https:false,rootPath:"/phpmyadmin/",arg_separator:"&",PMA_VERSION:"5.1.3",auth_type:"config",user:"root"});
 var firstDayOfCalendar = '0';
 var themeImagePath = '.\/themes\/pmahomme\/img\/';
 var mysqlDocTemplate = '.\/url.php\u003Furl\u003Dhttps\u00253A\u00252F\u00252Fdev.mysql.com\u00252Fdoc\u00252Frefman\u00252F8.0\u00252Fen\u00252F\u002525s.html';
@@ -284,7 +284,7 @@ $(function() {
                   <div id="pma_navigation_settings"><div class="page_settings"><form method="post" action="index.php&#x3F;route&#x3D;&#x25;2Fexport&amp;server&#x3D;1" class="config-form disableAjax">
   <input type="hidden" name="tab_hash" value="">
       <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
-    <input type="hidden" name="token" value="415f36445f68216c412d464952557a5d">
+    <input type="hidden" name="token" value="40426157782a25483c5a68483e49504f">
   <input type="hidden" name="submit_save" value="Navi">
 <ul class="tabs responsivetable row">
       <li><a href="#Navi_panel">Navigation panel</a></li>
@@ -561,197 +561,7 @@ $.extend(defaultValues, {
                     <span class="hide" id="instructions-1">
                         Press Enter to execute query                    </span>
                 </div>
-                                                            <div class="message history collapsed hide"
-                            targetdb="book_shop" targettable="user_login">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>book_shop</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">CREATE TABLE `book_shop`.`user_login` ( `email` VARCHAR(30) NOT NULL ,  `password` VARCHAR(8) NOT NULL ,    PRIMARY KEY  (`email`(30))) ENGINE = InnoDB;</span>
-                        </div>
-                                            <div class="message history collapsed hide"
-                            targetdb="book_shop" targettable="user_login">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>book_shop</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">INSERT INTO `user_login` (`email`, `password`) VALUES (&#039;archit@gmail.com&#039;, &#039;Archit123&#039;);</span>
-                        </div>
-                                            <div class="message history collapsed hide select"
-                            targetdb="book_shop" targettable="user_login">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>book_shop</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">SELECT * FROM `user_login`</span>
-                        </div>
-                                            <div class="message history collapsed hide select"
-                            targetdb="book_shop" targettable="user_login">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>book_shop</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">SELECT * FROM `user_login`</span>
-                        </div>
-                                            <div class="message history collapsed hide select"
-                            targetdb="book_shop" targettable="user_login">
-                            <div class="action_content">
-                    <span class="action collapse">
-            Collapse
-                    </span>
-                            <span class="action expand">
-            Expand
-                    </span>
-                            <span class="action requery">
-            Requery
-                    </span>
-                            <span class="action edit">
-            Edit
-                    </span>
-                            <span class="action explain">
-            Explain
-                    </span>
-                            <span class="action profiling">
-            Profiling
-                    </span>
-                            <span class="action bookmark">
-            Bookmark
-                    </span>
-                            <span class="text failed">
-            Query failed
-                    </span>
-                            <span class="text targetdb">
-            Database
-                            : <span>book_shop</span>
-                    </span>
-                            <span class="text query_time">
-            Queried time
-                            : <span>During current session</span>
-                    </span>
-            </div>
-                            <span class="query">SELECT * FROM `user_login`</span>
-                        </div>
-                                            <div class="message history collapsed hide select"
+                                                            <div class="message history collapsed hide select"
                             targetdb="book_shop" targettable="user_login">
                             <div class="action_content">
                     <span class="action collapse">

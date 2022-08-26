@@ -51,7 +51,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $(".signup").hide();
-  $(".signup-btn").click(function(){
+  $("#goto-signup").click(function(){
     $(".signup").show();
     $(".login").hide();
   });
