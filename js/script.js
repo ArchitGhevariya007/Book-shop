@@ -49,15 +49,23 @@ $(document).ready(function(){
 //Signup login toogle
 
 
-$(document).ready(function(){
-  $(".signup").hide();
-  $("#goto-signup").click(function(){
-    $(".signup").show();
-    $(".login").hide();
-  });
+// $(document).ready(function(){
+//   $(".signup").hide();
+//   $("#goto-signup").click(function(){
+//     $(".signup").show();
+//     $(".login").hide();
+//   });
 
-  $(".backto-login-btn").click(function(){
-    $(".login").show();
-    $(".signup").hide();
-  });
-});
+//   $(".backto-login-btn").click(function(){
+//     $(".login").show();
+//     $(".signup").hide();
+//   });
+// });
+
+
+document.getElementById("goto-signup").onclick = function() {
+  
+  document.getElementById("login").style.display = "none";
+  document.getElementById("signup").style.display = "block";
+
+}

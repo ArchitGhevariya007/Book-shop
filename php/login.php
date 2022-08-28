@@ -33,129 +33,93 @@
 
 <body>
 
-<!------------------------------------------- login form ------------------------------------------->
-    <form method="POST" action="" class="login">
+    <!------------------------------------------- login form ------------------------------------------->
+    <form method="POST" action="" class="login" id="login">
         <div class="login-body">
             <p class="title">Login</p>
-            <div>
-                <?php
-                if(!empty($error)){
-                echo $error;
-                }
-                ?>
-            </div>
             <input type="text" name="login-email" placeholder="Enter your email"><br>
             <?php
-                            if(isset($_POST["login-email"]))
-                            {
-                                if($_POST["login-email"] == "")
-                                {
-                                    echo '<p class="error" >Please enter email.</p>';
-                                    $flag = false;
-                                }
-                            }
-                        ?>
+                if (isset($_POST["login-email"])) {
+                    if ($_POST["login-email"] == "") {
+                        echo '<p class="error" >Please enter email.</p>';
+                        $flag = false;
+                    }
+                }
+            ?>
+
             <input type="password" name="login-password" placeholder="Enter your password"><br>
             <?php
-                            if(isset($_POST["login-password"]))
-                            {
-                                if($_POST["login-password"] == "")
-                                {
-                                    echo '<p class="error" >Please enter password.</p>';
-                                    $flag = false;
-                                }
-                            }
-                        ?>
-            
-            <button name="login-submit" class="login-btn">LOGIN</button>
+                if (isset($_POST["login-password"])) {
+                    if ($_POST["login-password"] == "") {
+                        echo '<p class="error" >Please enter password.</p>';
+                        $flag = false;
+                    }
+                }
+            ?>
 
-            <!-- Line  -->
-            <div class="separator">
-                <div class="line"></div>
-                <h6>OR</h6>
-                <div class="line"></div>
+                <button name="login-submit" class="login-btn">LOGIN</button>
+
+                <!-- Line  -->
+                <div class="separator">
+                    <div class="line"></div>
+                    <h6>OR</h6>
+                    <div class="line"></div>
+                </div>
+
+                <input type="button" name="button" id="goto-signup" class="signup-btn" value="SIGN UP">
             </div>
-
-            <input type="button" name="button" id="goto-signup" class="signup-btn" value="SIGN UP">
-        </div>
     </form>
 
 
 
-<!------------------------------------------- Signup form ------------------------------------------->
-    <form method="POST" class="signup" action="">
+    <!------------------------------------------- Signup form ------------------------------------------->
+    <form method="POST" class="signup" action="" id="signup">
         <div class="signup-body">
             <p class="title">Signup</p>
             <input type="text" name="email" placeholder="Enter your email"><br>
             <?php
-                            $flag = true;
-                            if(isset($_POST["email"]))
-                            {
-                                if($_POST["email"] == "")
-                                {
-                                    echo '<p class="error" >Please enter email.</p>';
-                                    $flag = false;
-                                }
-                            }
-                        ?>
+            $flag = true;
+            if (isset($_POST["email"])) {
+                if ($_POST["email"] == "") {
+                    echo '<p class="error" >Please enter email.</p>';
+                    $flag = false;
+                }
+            }
+            ?>
+
             <input type="password" name="password" placeholder="Enter your password"><br>
             <?php
-                            if(isset($_POST["password"]))
-                            {
-                                if($_POST["password"] == "")
-                                {
-                                    echo '<p class="error" >Please enter password.</p>';
-                                    $flag = false;
-                                }
-                            }
-                        ?>
+                if (isset($_POST["password"])) {
+                    if ($_POST["password"] == "") {
+                        echo '<p class="error" >Please enter password.</p>';
+                        $flag = false;
+                    }
+                }
+            ?>
+
             <div class="captcha">
                 <div><img src="captcha.php" alt="PHP Captcha" class="d-flex justify-content-start"></div> <br>
             </div>
+
             <?php
-                            session_start();
-                            if(isset($_POST["Captcha"]))
-                            {
-                                if($_POST["Captcha"] == "")
-                                {
-                                    echo '<p class="error" >Please Enter Captcha.</p>';
-                                    $flag = false;
-                                }
-                                else if($_SESSION['captcha'] != $_POST["Captcha"] )
-                                {
-                                    echo '<p class="error" >Incorrect captcha.</p>';
-                                    $flag = false;
-                                }
-                                else
-                                {
-                                    echo '<p class="error">Correct captcha.</p>';
-                                    $flag = true;
-                                }
-                            }
-                        ?>
+            session_start();
+            if (isset($_POST["captcha"])) {
+                if ($_POST["captcha"] == "") {
+                    echo '<p class="error" >Please EntercCaptcha.</p>';
+                    $flag = false;
+                } elseif ($_SESSION['captcha'] != $_POST["captcha"]) {
+                    echo '<p class="error" >Incorrect captcha.</p>';
+                    $flag = false;
+                } else {
+                    echo '<p class="error">Correct captcha.</p>';
+                    $flag = true;
+                }
+            }
+            ?>
 
             <input type="text" name="captcha" placeholder="Enter Captcha"><br>
             <button name="submit" id="signup" class="signup-btn">SIGNUP</button>
-            <?php
-        if(isset($_POST['submit']))
-        {
-            if($flag == true)
-            {
-                include('connection.php');
-
-                $sql = "insert into user_login values('".$_POST['email']."','".$_POST['password']."')";
-                if($con->query($sql))
-                {
-                    echo "<script>alert(`Singup successfull`)</script>";
-                }
-                else
-                {
-                    echo "<script>alert(`user already exist`)</script>";
-                }
-            }
-        }
-        
-        ?>
+            
 
 
             <!-- Line  -->
@@ -174,33 +138,42 @@
 <script language="JavaScript" type="text/javascript" src="../js/script.js"></script>
 
 </html>
-
-<!-- For login -->
 <?php
-        if(isset($_POST['login-submit']))
-        {
-            if($flag == true)
-            {
-                include('connection.php'); 
-                $sql = "select * from user_login where email = '".$_POST['login-email']."'";
-                if(mysqli_num_rows(mysqli_query($con,$sql)))
-                {
-                    $sql = "select password from user_login where email = '".$_POST['login-email']."'";
-                    $result = mysqli_query($con,$sql);
-                    $data = mysqli_fetch_assoc($result);
-                    if($data['password'] == $_POST['login-password'])
-                    {
-                        header("Location:../index.html");
-                        exit();
+                if (isset($_POST['submit'])) {
+                    if ($flag == true) {
+                        include 'connection.php';
+
+                        $sql = "insert into user_login values('" . $_POST['email'] . "','" . $_POST['password'] . "')";
+                        if ($con->query($sql)) {
+                            echo "<script>alert(`Singup successfull`)</script>";
+                        } else {
+                            echo "<script>alert(`user already exist`)</script>";
+                        }
                     }
-                    else{
-                        $error="Incorrcet Password"; 
-                    }   
                 }
-                else{           
-                    $error="Username does not exist. Kindly register yourself.";
-                }
+
+            ?>
+
+<!-- For login  -->
+<?php
+if (isset($_POST['login-submit'])) {
+    if ($flag == true) {
+        include 'connection.php';
+        $sql = "select * from user_login where email = '" . $_POST['login-email'] . "'";
+        if (mysqli_num_rows(mysqli_query($con, $sql))) {
+            $sql = "select password from user_login where email = '" . $_POST['login-email'] . "'";
+            $result = mysqli_query($con, $sql);
+            $data = mysqli_fetch_assoc($result);
+            if ($data['password'] == $_POST['login-password']) {
+                header("Location:../index.html");
+                exit();
+            } else {
+                $error = "Incorrcet Password";
             }
+        } else {
+            $error = "Username does not exist. Kindly register yourself.";
         }
-        
-        ?>
+    }
+}
+
+?>
