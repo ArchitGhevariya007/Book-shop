@@ -66,6 +66,6 @@ $(document).ready(function(){
 document.getElementById("goto-signup").onclick = function() {
   
   document.getElementById("login").style.display = "none";
-  document.getElementById("signup").style.display = "block";
+  document.getElementById("signup-form").style.display = "block";
 
 }

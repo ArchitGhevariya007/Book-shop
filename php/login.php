@@ -73,7 +73,7 @@
 
 
     <!------------------------------------------- Signup form ------------------------------------------->
-    <form method="POST" class="signup" action="" id="signup">
+    <form method="POST" class="signup" action="" id="">
         <div class="signup-body">
             <p class="title">Signup</p>
             <input type="text" name="email" placeholder="Enter your email"><br>
