@@ -73,7 +73,7 @@
 
 
     <!------------------------------------------- Signup form ------------------------------------------->
-    <form method="POST" class="signup" action="" id="">
+    <form method="POST" class="signup" action="" id="signup-toggle">
         <div class="signup-body">
             <p class="title">Signup</p>
             <input type="text" name="email" placeholder="Enter your email"><br>
@@ -128,7 +128,7 @@
                 <h6>OR</h6>
                 <div class="line"></div>
             </div>
-            <input type="button" name="button" id="" class="backto-login-btn" value="Login">
+            <input type="button" name="button" id="backto-login-btn" class="backto-login-btn" value="Login">
         </div>
     </form>
 

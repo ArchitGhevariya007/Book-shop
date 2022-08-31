@@ -69,3 +69,11 @@ document.getElementById("goto-signup").onclick = function() {
   document.getElementById("signup-form").style.display = "block";
 
 }
+
+
+document.getElementById("backto-login-btn").onclick = function() {
+  
+  document.getElementById("login").style.display = "block";
+  document.getElementById("signup-toggle").style.display = "none";
+
+}
