@@ -129,6 +129,7 @@
                             Add Categories
                         </button>
 
+                        <!-- Modal : Start -->
                         <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog"
                             aria-labelledby="mediumModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
@@ -140,25 +141,77 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <input type="text" placeholder="Enter Category" name="categories" >
+                                        <form action="manage-cata-func.php" method="post">
+                                            <input type="text" placeholder="Enter Category" name="categories"
+                                                id="cata_textbox">
+                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-primary">Add</button>
+                                        <button type="button" class="btn btn-secondary" name="add_cat">Add</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
 
-                        
-
-
-
+                        <!-- Modal : End -->
                     </div>
                 </div>
+
+                <!-- Table : Start -->
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Categories</strong>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Category Name</th>
+                                    <th scope="col">Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td id="cata_name">Mark</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#mediumModal" id="edit_btn">Edit</button>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td id="cata_name">Jacob</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#mediumModal" id="edit_btn">Edit</button>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td id="cata_name">Larry</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#mediumModal" id="edit_btn">Edit</button>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Table : End -->
+
             </div>
         </div>
+
 
     </div> <!-- .content -->
     </div><!-- /#right-panel -->
@@ -178,24 +231,32 @@
     <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
     <script>
-        (function ($) {
-            "use strict";
+    (function($) {
+        "use strict";
 
-            jQuery('#vmap').vectorMap({
-                map: 'world_en',
-                backgroundColor: null,
-                color: '#ffffff',
-                hoverOpacity: 0.7,
-                selectedColor: '#1de9b6',
-                enableZoom: true,
-                showTooltip: true,
-                values: sample_data,
-                scaleColors: ['#1de9b6', '#03a9f5'],
-                normalizeFunction: 'polynomial'
-            });
-        })(jQuery);
+        jQuery('#vmap').vectorMap({
+            map: 'world_en',
+            backgroundColor: null,
+            color: '#ffffff',
+            hoverOpacity: 0.7,
+            selectedColor: '#1de9b6',
+            enableZoom: true,
+            showTooltip: true,
+            values: sample_data,
+            scaleColors: ['#1de9b6', '#03a9f5'],
+            normalizeFunction: 'polynomial'
+        });
+    })(jQuery);
     </script>
 
+
+    <script>
+    document.getElementById("edit_btn").addEventListener("click", myFunction);
+
+    function myFunction() {
+        document.getElementById("cata_textbox").value = document.getElementById("cata_name").innerHTML;
+    }
+    </script>
 </body>
 
 </html>
