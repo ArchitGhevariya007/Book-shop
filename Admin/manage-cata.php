@@ -1,3 +1,9 @@
+<?php
+session_start();
+// $row = mysqli_fetch_assoc($result);
+?>
+
+
 <!doctype html>
 <html class="no-js" lang="en">
 <!--<![endif]-->
@@ -28,7 +34,6 @@
 
 <body>
 
-
     <!-- Left Panel -->
 
     <aside id="left-panel" class="left-panel">
@@ -45,20 +50,20 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="index.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
                     <li>
-                        <a href="manage-cata.html"> <i class="menu-icon ti-layout-list-thumb"></i>Manage categories </a>
+                        <a href="manage-cata.php"> <i class="menu-icon ti-layout-list-thumb"></i>Manage categories </a>
                     </li>
                     <li>
-                        <a href="manage-product.html"> <i class="menu-icon ti-layout-grid2-alt"></i>Manage product </a>
+                        <a href="manage-product.php"> <i class="menu-icon ti-layout-grid2-alt"></i>Manage product </a>
                     </li>
                     <li>
-                        <a href="manage-user.html"> <i class="menu-icon ti-user"></i>Manage users </a>
+                        <a href="manage-user.php"> <i class="menu-icon ti-user"></i>Manage users </a>
                     </li>
                     <li>
-                        <a href="manage-order.html"> <i class="menu-icon ti-shopping-cart"></i>Manage orders </a>
+                        <a href="manage-order.php"> <i class="menu-icon ti-shopping-cart"></i>Manage orders </a>
                     </li>
 
 
@@ -107,6 +112,16 @@
         </header><!-- /header -->
         <!-- Header-->
 
+        <div class="alert alert-success alert-dismissible" id="error_msg">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <?php
+if (isset($_SESSION["errormsg"])) {
+    echo $_SESSION["errormsg"];
+    session_destroy();
+}
+?>
+        </div>
+
         <div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
@@ -140,18 +155,20 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <div class="modal-body">
-                                        <form action="manage-cata-func.php" method="post">
-                                            <input type="text" placeholder="Enter Category" name="categories"
+                                    <form action="./php/manage-cata-func.php" method="POST">
+                                        <div class="modal-body">
+                                            <input type="text" placeholder="Enter ID" name="cat_id">
+                                            <input type="text" placeholder="Enter Category" name="cat_name"
                                                 id="cata_textbox">
-                                        
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Cancel</button>
-                                        <button type="button" class="btn btn-secondary" name="add_cat">Add</button>
-                                    </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-secondary" name="add_cat"
+                                                id="add-cat">Add</button>
+                                        </div>
                                     </form>
+
                                 </div>
                             </div>
                         </div>
@@ -173,35 +190,20 @@
                                     <th scope="col">Category Name</th>
                                     <th scope="col">Edit</th>
                                 </tr>
+
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td id="cata_name">Mark</td>
+                                
+                                    <th scope="row"><?php echo $_SESSION['cat_id']; ?></th>
+                                    <td id="cata_name"><?php echo $_SESSION['cat_name']; ?></td>
                                     <td>
                                         <button type="button" class="btn btn-primary" data-toggle="modal"
                                             data-target="#mediumModal" id="edit_btn">Edit</button>
                                         <button type="button" class="btn btn-danger">Delete</button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td id="cata_name">Jacob</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#mediumModal" id="edit_btn">Edit</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td id="cata_name">Larry</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#mediumModal" id="edit_btn">Edit</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
-                                    </td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>
@@ -230,6 +232,7 @@
     <script src="vendors/jqvmap/dist/jquery.vmap.min.js"></script>
     <script src="vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <script src="vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+
     <script>
     (function($) {
         "use strict";
@@ -256,6 +259,13 @@
     function myFunction() {
         document.getElementById("cata_textbox").value = document.getElementById("cata_name").innerHTML;
     }
+
+    // document.getElementById("add-cat").addEventListener("click", myFunction2);
+    // document.getElementById("error_msg").style.display = "none";
+
+    // function myFunction2() {
+    //     document.getElementById("error_msg").style.display = "  block";
+    // }
     </script>
 </body>
 

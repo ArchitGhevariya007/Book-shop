@@ -1,24 +1,36 @@
 <?php
 include 'connection.php';
+session_start();
+
+//Select categories
+    $sql = "select * from categories";
+    $result = mysqli_query($conn, $sql);
+
+    
+// if (mysqli_num_rows($result) > 0) {
+//     // output data of each row
+//     while($row = mysqli_fetch_assoc($result)) {
+//         echo "id: " . $row["cat_id"]. " - Name: " . $row["cat_name"] . "<br>";
+//     }
+// } else {
+//     echo "0 results";
+// }
 
 
-if (isset($_POST['add_cat'])) {
-    $sql = "insert into cat_name values('".$_POST['categories']."')";
+//Insert categories
+if(empty($_POST['cat_id']) && empty($_POST['cat_name'])){
+    $_SESSION["errormsg"]= "Please enter details";
+}  
 
+if (isset($_POST['add_cat']) && !empty($_POST['cat_id']) && !empty($_POST['cat_name'])) {
+
+    $sql = "insert into categories values('".$_POST['cat_id']."','".$_POST['cat_name']."')";
         if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
+            $_SESSION["errormsg"]= "New record added successfully";
         } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            $_SESSION["errormsg"]= "Error";
         }
     }
-}
-
-// $sql = "UPDATE categories SET cat_name='$_POST['categories']' WHERE id=2";
-
-// if (mysqli_query($conn, $sql)) {
-//   echo "Record updated successfully";
-// } else {
-//   echo "Error updating record: " . mysqli_error($conn);
-//}
-
+    header('Location: ../manage-cata.php');
+    exit();  
 ?>

@@ -43,20 +43,20 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="index.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <h3 class="menu-title">UI elements</h3><!-- /.menu-title -->
                     <li>
-                        <a href="manage-cata.html"> <i class="menu-icon ti-email"></i>Manage categories </a>
+                        <a href="manage-cata.php"> <i class="menu-icon ti-email"></i>Manage categories </a>
                     </li>
                     <li>
-                        <a href="manage-product.html"> <i class="menu-icon ti-email"></i>Manage product </a>
+                        <a href="manage-product.php"> <i class="menu-icon ti-email"></i>Manage product </a>
                     </li>
                     <li>
-                        <a href="manage-user.html"> <i class="menu-icon ti-email"></i>Manage users </a>
+                        <a href="manage-user.php"> <i class="menu-icon ti-email"></i>Manage users </a>
                     </li>
                     <li>
-                        <a href="manage-order.html"> <i class="menu-icon ti-email"></i>Manage orders </a>
+                        <a href="manage-order.php"> <i class="menu-icon ti-email"></i>Manage orders </a>
                     </li>
                     
 
@@ -107,16 +107,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Dashboard</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li class="active">Dashboard</li>
-                        </ol>
+                        <h1>Manage User</h1>
                     </div>
                 </div>
             </div>
