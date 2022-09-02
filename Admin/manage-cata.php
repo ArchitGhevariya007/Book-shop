@@ -13,7 +13,7 @@ if(mysqli_num_rows($result)>0)
         $GLOBALS['table'].= 
            "<tr> <td> $row[cat_id] </td> 
             <td> $row[cat_name] </td>
-            <td> <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#mediumModal' id='edit_btn'>Edit</button>
+            <td> <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#editmodal' id='$row[cat_id]'>Edit</button>
            <button type='button' class='btn btn-danger delete_btn' name='delete_btn' id='$row[cat_id]'>Delete</button></td>
             </tr>";
         
@@ -164,7 +164,7 @@ if(mysqli_num_rows($result)>0)
                             Add Categories
                         </button>
 
-                        <!-- Modal : Start -->
+                        <!-- Insert Modal : Start -->
                         <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog"
                             aria-labelledby="mediumModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
@@ -186,6 +186,36 @@ if(mysqli_num_rows($result)>0)
                                                 data-dismiss="modal">Cancel</button>
                                             <button type="submit" class="btn btn-secondary" name="add_cat"
                                                 id="add-cat">Add</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal : End -->
+
+                        <!-- Edit Modal : Start -->
+                        <div class="modal fade" id="editmodal" tabindex="-1" role="dialog"
+                            aria-labelledby="mediumModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="mediumModalLabel">Update Category</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form method="POST">
+                                        <div class="modal-body">
+                                            <input type="text" placeholder="Enter Category" name="update_cat_name"
+                                                id="cata_textbox">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-secondary update_cat" name="update_cat"
+                                                id="update-cat">Update</button>
                                         </div>
                                     </form>
 
@@ -282,11 +312,11 @@ if(mysqli_num_rows($result)>0)
 
 
     <script>
-    document.getElementById("edit_btn").addEventListener("click", myFunction);
+    // document.getElementById("edit_btn").addEventListener("click", myFunction);
 
-    function myFunction() {
-        document.getElementById("cata_textbox").value = document.getElementById("cata_name").innerHTML;
-    }
+    // function myFunction() {
+    //     document.getElementById("cata_textbox").value = document.getElementById("cata_name").innerHTML;
+    // }
 
     // document.getElementById("add-cat").addEventListener("click", myFunction2);
     // document.getElementById("error_msg").style.display = "none";
@@ -295,7 +325,7 @@ if(mysqli_num_rows($result)>0)
     //     document.getElementById("error_msg").style.display = "  block";
     // }
 
-    // if(<?php empty($_SESSION["errormsg"]) ?>){
+    // if(<?php //empty($_SESSION["errormsg"]) ?>){
     //     document.getElementById("error_msg").style.display = "none";
     // }else{
     //     document.getElementById("error_msg").style.display = "block";
@@ -314,6 +344,24 @@ if(mysqli_num_rows($result)>0)
                             session_destroy();
                         }
                     ?>
+                    window.location.reload();
+                });
+        });
+
+        $(".update_cat").click(function() {
+            $.post("./php/manage-cata-func.php", {
+                    cat_id: $(this).attr("id"),
+                    // update_cat:true, 
+                    update_cat_name:$('#cata_textbox').val()
+                },
+                function(data, status) {
+                    <?php
+                        if (isset($_SESSION["errormsg"])) {
+                            echo $_SESSION["errormsg"];
+                            session_destroy();
+                        }
+                    ?>
+                    alert(data);
                     window.location.reload();
                 });
         });

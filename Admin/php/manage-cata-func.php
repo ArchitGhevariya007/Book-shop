@@ -2,22 +2,33 @@
 include 'connection.php';
 session_start();
 
-//Select categories
-$sql = "select * from categories";
-$result = mysqli_query($conn, $sql);
+//update categories
+if (isset($_POST['cat_id'])) {
+    $id=$_POST['cat_id'];
+    $name=$_POST['update_cat_name'];
+    // $sql = "select cat_id from categories where cat_name=$name";
+    
+    // $result = mysqli_query($conn, $sql);
+    
 
-if(mysqli_num_rows($result)>0)
-{
-    while($row = mysqli_fetch_assoc($result)) {
-        $_SESSION['table'].= 
-           "<tr> <td> $row[cat_id] </td> 
-            <td> $row[cat_name] </td>
-            <td> <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#mediumModal' id='edit_btn'>Edit</button>
-           <button type='button' class='btn btn-danger delete_btn' name='delete_btn' id='$row[cat_id]'>Delete</button></td>
-            </tr>";
-        
-      }
-}
+    // if(mysqli_num_rows($result)===1)
+    // {  
+
+        // $product = mysqli_fetch_assoc($result);
+
+        // $id = $product['cat_id'];
+        $sql = "update categories set cat_name='$name' where cat_id='$id'";
+
+        if (mysqli_query($conn, $sql)) {
+            $_SESSION["errormsg"]= "Record update successfully";
+            echo "ok update";
+        } else {
+            $_SESSION["errormsg"]= "Error";
+            echo "failed";
+        }
+    }
+
+    
 
 
 //Insert categories
