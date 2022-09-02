@@ -1,6 +1,24 @@
 <?php
+include './php/connection.php';
 session_start();
-// $row = mysqli_fetch_assoc($result);
+$table = "";
+
+//Select categories
+$sql = "select * from categories";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result)>0)
+{
+    while($row = mysqli_fetch_assoc($result)) {
+        $GLOBALS['table'].= 
+           "<tr> <td> $row[cat_id] </td> 
+            <td> $row[cat_name] </td>
+            <td> <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#mediumModal' id='edit_btn'>Edit</button>
+           <button type='button' class='btn btn-danger delete_btn' name='delete_btn' id='$row[cat_id]'>Delete</button></td>
+            </tr>";
+        
+      }
+}
 ?>
 
 
@@ -29,6 +47,8 @@ session_start();
     <link rel="stylesheet" href="assets/css/style2.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
 </head>
 
@@ -115,11 +135,11 @@ session_start();
         <div class="alert alert-success alert-dismissible" id="error_msg">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <?php
-if (isset($_SESSION["errormsg"])) {
-    echo $_SESSION["errormsg"];
-    session_destroy();
-}
-?>
+                if (isset($_SESSION["errormsg"])) {
+                    echo $_SESSION["errormsg"];
+                    session_destroy();
+                }
+            ?>
         </div>
 
         <div class="breadcrumbs">
@@ -193,16 +213,24 @@ if (isset($_SESSION["errormsg"])) {
 
                             </thead>
                             <tbody>
-                                <tr>
+
+                                <?php
+                                //     if(!empty($result)){
+                                //     if (mysqli_num_rows($result) > 0) {
+                                //         while ($row = mysqli_fetch_assoc($result)) {
+
+                                //         echo "<tr> <td> $row[cat_id] </td> 
+                                //                                     <td> $row[cat_name] </td>
+                                //                                     <td> <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#mediumModal' id='edit_btn'>Edit</button>
+                                //                                     <a href='manage-cata.php?id=$row[cat_id]'><button type='button' class='btn btn-danger' name='delete_btn' id='delete_btn'>Delete</button></a></td>
+                                //                                     </tr>";
+                                //         }
+                                //     }
+                                // }
                                 
-                                    <th scope="row"><?php echo $_SESSION['cat_id']; ?></th>
-                                    <td id="cata_name"><?php echo $_SESSION['cat_name']; ?></td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#mediumModal" id="edit_btn">Edit</button>
-                                        <button type="button" class="btn btn-danger">Delete</button>
-                                    </td>
-                                </tr>
+                                    
+                                echo $GLOBALS['table'];
+                                    ?>
 
                             </tbody>
                         </table>
@@ -266,6 +294,31 @@ if (isset($_SESSION["errormsg"])) {
     // function myFunction2() {
     //     document.getElementById("error_msg").style.display = "  block";
     // }
+
+    // if(<?php empty($_SESSION["errormsg"]) ?>){
+    //     document.getElementById("error_msg").style.display = "none";
+    // }else{
+    //     document.getElementById("error_msg").style.display = "block";
+    // }
+
+    // Delete record
+    $(document).ready(function() {
+        $(".delete_btn").click(function() {
+            $.post("./php/category_api.php", {
+                    cat_id: $(this).attr("id")
+                },
+                function(data, status) {
+                    <?php
+                        if (isset($_SESSION["errormsg"])) {
+                            echo $_SESSION["errormsg"];
+                            session_destroy();
+                        }
+                    ?>
+                    window.location.reload();
+                });
+        });
+
+    });
     </script>
 </body>
 

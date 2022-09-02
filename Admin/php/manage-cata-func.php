@@ -3,18 +3,21 @@ include 'connection.php';
 session_start();
 
 //Select categories
-    $sql = "select * from categories";
-    $result = mysqli_query($conn, $sql);
+$sql = "select * from categories";
+$result = mysqli_query($conn, $sql);
 
-    
-// if (mysqli_num_rows($result) > 0) {
-//     // output data of each row
-//     while($row = mysqli_fetch_assoc($result)) {
-//         echo "id: " . $row["cat_id"]. " - Name: " . $row["cat_name"] . "<br>";
-//     }
-// } else {
-//     echo "0 results";
-// }
+if(mysqli_num_rows($result)>0)
+{
+    while($row = mysqli_fetch_assoc($result)) {
+        $_SESSION['table'].= 
+           "<tr> <td> $row[cat_id] </td> 
+            <td> $row[cat_name] </td>
+            <td> <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#mediumModal' id='edit_btn'>Edit</button>
+           <button type='button' class='btn btn-danger delete_btn' name='delete_btn' id='$row[cat_id]'>Delete</button></td>
+            </tr>";
+        
+      }
+}
 
 
 //Insert categories
@@ -31,6 +34,11 @@ if (isset($_POST['add_cat']) && !empty($_POST['cat_id']) && !empty($_POST['cat_n
             $_SESSION["errormsg"]= "Error";
         }
     }
-    header('Location: ../manage-cata.php');
-    exit();  
+    header("Location: ../manage-cata.php");
+    exit();
+
+
+
+
+
 ?>
